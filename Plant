@@ -1,0 +1,56 @@
+int sensorPin = A0; // select the input pin for ldr
+int sensorValue = 0; // variable to store the value coming from the sensor
+int ledPin = 13;      // select the pin for the LED
+int ledPin2 = 12;      // select the pin for the LED
+int ledPin3 = 11;      // select the pin for the LED
+
+void setup() {
+Serial.begin(9600); //sets serial port for communication
+pinMode(ledPin, OUTPUT);
+}
+void loop() {
+sensorValue = analogRead(sensorPin); // read the value from the sensor
+Serial.println(sensorValue); //prints the values coming from the sensor on the screen
+delay(1);
+  
+    if ( sensorValue < 1000) {
+    if ( sensorValue > 800) {
+    digitalWrite(ledPin, HIGH);
+    digitalWrite(ledPin2, LOW);
+    digitalWrite(ledPin3, LOW);
+    delay(1);        // delay in between reads for stability
+    
+      }}
+
+  
+
+    if ( sensorValue < 800) {
+    if ( sensorValue > 500) {
+    digitalWrite(ledPin, LOW);
+    digitalWrite(ledPin2, HIGH);
+    digitalWrite(ledPin3, LOW);
+    delay(1);        // delay in between reads for stability
+    
+  }}
+    
+
+
+
+    if ( sensorValue < 500) {
+    if ( sensorValue > 200) {
+    digitalWrite(ledPin, LOW);
+    digitalWrite(ledPin2, LOW);
+    digitalWrite(ledPin3, HIGH);
+    delay(1);        // delay in between reads for stability
+    
+  }}
+
+
+  
+  else {
+    digitalWrite(ledPin, LOW);
+    digitalWrite(ledPin2, LOW);
+    digitalWrite(ledPin3, LOW);
+    delay(1);
+  }
+}
